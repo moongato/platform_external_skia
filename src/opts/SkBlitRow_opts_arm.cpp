@@ -194,6 +194,16 @@ static void S32A_Opaque_BlitRow32_arm(SkPMColor* SK_RESTRICT dst,
                   );
 }
 
+#if defined(__ARM_HAVE_NEON) && defined(SK_CPU_LENDIAN) && defined(ENABLE_OPTIMIZED_S32A_BLITTERS)
+
+/* External function in file S32A_Blend_BlitRow32_neon.S */
+extern "C" void S32A_Blend_BlitRow32_neon(SkPMColor* SK_RESTRICT dst,
+                                          const SkPMColor* SK_RESTRICT src,
+                                          int count, U8CPU alpha);
+
+#define S32A_Blend_BlitRow32_PROC  S32A_Blend_BlitRow32_neon
+#else
+
 /*
  * ARM asm version of S32A_Blend_BlitRow32
  */
@@ -334,6 +344,7 @@ void S32A_Blend_BlitRow32_arm(SkPMColor* SK_RESTRICT dst,
                   );
 
 }
+#endif
 
 ///////////////////////////////////////////////////////////////////////////////
 
