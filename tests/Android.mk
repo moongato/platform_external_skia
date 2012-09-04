@@ -9,8 +9,8 @@ LOCAL_SRC_FILES:= \
   AtomicTest.cpp \
   BitmapCopyTest.cpp \
   BitmapGetColorTest.cpp \
-  BitmapHeapTest.cpp \
-  BitSetTest.cpp \
+  BitmapProcStateTest.cpp \
+  Blitter_RGB16Test.cpp \
   BlitRowTest.cpp \
   BlurTest.cpp \
   CanvasStateTest.cpp \
@@ -30,8 +30,7 @@ LOCAL_SRC_FILES:= \
   EmptyPathTest.cpp \
   ErrorTest.cpp \
   FillPathTest.cpp \
-  FitsInTest.cpp \
-  FlatDataTest.cpp \
+  Filter32_Tests.cpp \
   FlateTest.cpp \
   FontHostStreamTest.cpp \
   FontHostTest.cpp \
@@ -53,6 +52,8 @@ LOCAL_SRC_FILES:= \
   LListTest.cpp \
   MD5Test.cpp \
   MathTest.cpp \
+  MatrixProcsTest.cpp \
+  MatrixTest.cpp \
   Matrix44Test.cpp \
   MatrixTest.cpp \
   MemsetTest.cpp \
@@ -77,10 +78,7 @@ LOCAL_SRC_FILES:= \
   RefCntTest.cpp \
   RefDictTest.cpp \
   RegionTest.cpp \
-  ResourceCacheTest.cpp \
-  RoundRectTest.cpp \
-  RTreeTest.cpp \
-  SHA1Test.cpp \
+  S32_BlitRow_Tests.cpp \
   ScalarTest.cpp \
   ShaderImageFilterTest.cpp \
   ShaderOpacityTest.cpp \

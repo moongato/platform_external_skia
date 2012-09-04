@@ -16,8 +16,8 @@ LOCAL_SRC_FILES += \
   AAClipBench.cpp \
   BicubicBench.cpp \
   BitmapBench.cpp \
-  BitmapRectBench.cpp \
-  BitmapScaleBench.cpp \
+  BitmapProcStateBench.cpp \
+  BlitBench.cpp \
   BlurBench.cpp \
   BlurImageFilterBench.cpp \
   BlurRectBench.cpp \
