@@ -79,6 +79,9 @@
           'dependencies': [
             'android_deps.gyp:cpu_features',
           ],
+          'dependencies': [
+            'android_deps.gyp:cpu_features',
+          ],
         }],
         [ 'skia_arch_type == "arm"', {
           # The code in SkUtilsArm.cpp can be used on an ARM-based Linux system, not only Android.
