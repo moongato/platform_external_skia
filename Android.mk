@@ -631,7 +631,7 @@ ifneq ($(ARCH_ARM_HAVE_VFP),true)
 endif
 
 ifeq ($(TARGET_USE_GR_STATIC_RECT_VB),true)
-	LOCAL_CFLAGS += -DGR_STATIC_RECT_VB
+
 endif
 
 ifeq ($(ARCH_ARM_HAVE_NEON),true)
