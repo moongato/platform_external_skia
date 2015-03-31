@@ -144,8 +144,8 @@ static void intersect(const SkDCubic& cubic1, double t1s, double t1e, const SkDC
                     double c1Top = tIdx == tCount - 1 ? 1 :
                             (t1Start + (t1 - t1Start) * locals[0][tIdx + 1] + to1) / 2;
                     double c1Max = SkTMin(c1Top, to1 + offset);
-                    double c2Min = SkTMax(0., to2 - offset);
-                    double c2Max = SkTMin(1., to2 + offset);
+                    double c2Min = SkTMax((double)0., to2 - offset);
+                    double c2Max = SkTMin((double)1., to2 + offset);
                 #if ONE_OFF_DEBUG
                     SkDebugf("%.*s %s 1 contains1=%d/%d contains2=%d/%d\n", i.depth()*2, tab,
                             __FUNCTION__,
@@ -171,8 +171,8 @@ static void intersect(const SkDCubic& cubic1, double t1s, double t1e, const SkDC
                             i.used(), i.used() > 0 ? i[0][i.used() - 1] : -1);
                 #endif
                     if (tCount > 1) {
-                        c1Min = SkTMax(0., to1 - offset);
-                        c1Max = SkTMin(1., to1 + offset);
+                        c1Min = SkTMax((double)0., to1 - offset);
+                        c1Max = SkTMin((double)1., to1 + offset);
                         double c2Bottom = tIdx == 0 ? to2 :
                                 (t2Start + (t2 - t2Start) * locals[1][tIdx - 1] + to2) / 2;
                         double c2Top = tIdx == tCount - 1 ? to2 :
@@ -392,15 +392,15 @@ void SkIntersections::cubicNearEnd(const SkDCubic& cubic1, bool start, const SkD
         while (tLast + 1 < tVals.count() && roughly_equal(tVals[tLast + 1], tVals[tIdx])) {
             ++tLast;
         }
-        double tMin2 = SkTMax(tVals[tIdx] - LINE_FRACTION, 0.0);
-        double tMax2 = SkTMin(tVals[tLast] + LINE_FRACTION, 1.0);
+        double tMin2 = SkTMax(tVals[tIdx] - LINE_FRACTION, (double)0.0);
+        double tMax2 = SkTMin(tVals[tLast] + LINE_FRACTION, (double)1.0);
         int lastUsed = used();
         if (start ? tMax1 < tMin2 : tMax2 < tMin1) {
             ::intersect(cubic1, tMin1, tMax1, cubic2, tMin2, tMax2, 1, *this);
         }
         if (lastUsed == used()) {
-            tMin2 = SkTMax(tVals[tIdx] - (1.0 / SkDCubic::gPrecisionUnit), 0.0);
-            tMax2 = SkTMin(tVals[tLast] + (1.0 / SkDCubic::gPrecisionUnit), 1.0);
+            tMin2 = SkTMax(tVals[tIdx] - ((double)1.0 / SkDCubic::gPrecisionUnit), (double)0.0);
+            tMax2 = SkTMin(tVals[tLast] + ((double)1.0 / SkDCubic::gPrecisionUnit), (double)1.0);
             if (start ? tMax1 < tMin2 : tMax2 < tMin1) {
                 ::intersect(cubic1, tMin1, tMax1, cubic2, tMin2, tMax2, 1, *this);
             }

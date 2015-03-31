@@ -307,10 +307,10 @@ static bool binary_search(const SkDQuad& quad1, const SkDQuad& quad2, double* t1
     #endif
             return true;
         }
-        if (calcMask & (1 << 0)) t1[0] = quad1.ptAtT(SkTMax(0., *t1Seed - tStep));
-        if (calcMask & (1 << 2)) t1[2] = quad1.ptAtT(SkTMin(1., *t1Seed + tStep));
-        if (calcMask & (1 << 3)) t2[0] = quad2.ptAtT(SkTMax(0., *t2Seed - tStep));
-        if (calcMask & (1 << 5)) t2[2] = quad2.ptAtT(SkTMin(1., *t2Seed + tStep));
+        if (calcMask & (1 << 0)) t1[0] = quad1.ptAtT(SkTMax((double)0., *t1Seed - tStep));
+        if (calcMask & (1 << 2)) t1[2] = quad1.ptAtT(SkTMin((double)1., *t1Seed + tStep));
+        if (calcMask & (1 << 3)) t2[0] = quad2.ptAtT(SkTMax((double)0., *t2Seed - tStep));
+        if (calcMask & (1 << 5)) t2[2] = quad2.ptAtT(SkTMin((double)1., *t2Seed + tStep));
         double dist[3][3];
         // OPTIMIZE: using calcMask value permits skipping some distance calcuations
         //   if prior loop's results are moved to correct slot for reuse
